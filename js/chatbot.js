@@ -50,12 +50,33 @@ document.addEventListener("DOMContentLoaded", function () {
   var history = loadHistory();
 
   /* ---------- Rendering ---------- */
+
+  // Escapes HTML first, THEN converts **bold** markdown to <strong>.
+  // Order matters: escaping first means any HTML/script a message contains
+  // is neutralized before we ever construct real tags, so this stays safe
+  // even though we use innerHTML below.
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function formatMessageHtml(str) {
+    var escaped = escapeHtml(str);
+    // **bold** -> <strong>bold</strong>
+    escaped = escaped.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    return escaped;
+  }
+
   function renderMessage(role, text) {
     var el = document.createElement("div");
     el.className =
       "chat-msg " +
       (role === "user" ? "chat-msg-user" : role === "error" ? "chat-msg-error" : "chat-msg-bot");
-    el.textContent = text; // textContent (not innerHTML) — never render raw HTML from either side
+    el.innerHTML = formatMessageHtml(text); // safe: escaped above before any tag is introduced
     messagesEl.appendChild(el);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
