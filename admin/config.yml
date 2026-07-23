@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: LikiLimani/amzevnts
+  repo: LikiLimani/amazingeventss2
   branch: main
   base_url: https://amazingeventss.netlify.app
   auth_endpoint: .netlify/functions/auth
