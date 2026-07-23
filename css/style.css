@@ -686,6 +686,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-self:flex-start;
   border:1px solid rgba(220,80,80,.3);
 }
+.chat-msg-bot strong{
+  color:var(--spark);
+  font-weight:700;
+}
 .chat-typing{
   align-self:flex-start;
   display:flex; gap:4px;
