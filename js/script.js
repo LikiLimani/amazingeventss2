@@ -255,4 +255,30 @@ document.addEventListener('DOMContentLoaded', function () {
     showStep(0);
   }
 
-});
+  /* ---------- Package estimator calculator ---------- */
+  var calcItems = document.querySelectorAll('.calc-item');
+  var calcAmount = document.getElementById('calcAmount');
+  if (calcItems.length && calcAmount) {
+    function updateCalcPrice() {
+      var total = 0;
+      calcItems.forEach(function (item) {
+        if (item.classList.contains('selected')) {
+          var price = parseFloat(item.getAttribute('data-price'));
+          if (!isNaN(price)) {
+            total += price;
+          }
+        }
+      });
+      calcAmount.textContent = '$' + total;
+    }
+
+    calcItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        item.classList.toggle('selected');
+        updateCalcPrice();
+      });
+    });
+
+    updateCalcPrice();
+  }
+
