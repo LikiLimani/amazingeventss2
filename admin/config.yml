@@ -1,0 +1,81 @@
+backend:
+  name: github
+  repo: LikiLimani/amzevnts
+  branch: main
+  base_url: https://amazingeventss.netlify.app
+  auth_endpoint: .netlify/functions/auth
+
+# Where uploaded images from the CMS get stored in the repo,
+# and the URL path the live site uses to reach them.
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Shows a live-ish note in the top bar so editors know this isn't the real live site preview
+site_url: https://amazingeventss.netlify.app
+display_url: https://amazingeventss.netlify.app
+
+
+collections:
+
+  # ---------- SITE-WIDE SETTINGS ----------
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "data/site-settings.json"
+        label: "General Settings"
+        name: "site_settings"
+        fields:
+          - { label: "Hero — small label above headline", name: "hero_eyebrow", widget: "string" }
+          - { label: "Hero — main headline", name: "hero_headline_main", widget: "string" }
+          - { label: "Hero — gold emphasis line", name: "hero_headline_emphasis", widget: "string" }
+          - { label: "Hero — subheadline", name: "hero_subheadline", widget: "text" }
+          - { label: "Stat — weddings/events produced", name: "stat_weddings", widget: "string" }
+          - { label: "Stat — venue partners", name: "stat_venues", widget: "string" }
+          - { label: "Phone number (as displayed)", name: "phone", widget: "string" }
+          - { label: "Phone number (dial link — digits only, e.g. +15551234567)", name: "phone_link", widget: "string" }
+          - { label: "Email address", name: "email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
+          - { label: "Pinterest URL", name: "pinterest_url", widget: "string", required: false }
+          - label: "Venue Partners (logo strip)"
+            name: "venue_partners"
+            widget: "list"
+            summary: "{{fields.venue}}"
+
+  # ---------- TESTIMONIALS ----------
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - file: "data/testimonials.json"
+        label: "Testimonials List"
+        name: "testimonials_file"
+        fields:
+          - label: "Testimonials"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role / event detail", name: "role", widget: "string" }
+
+  # ---------- GALLERY ----------
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - file: "data/gallery.json"
+        label: "Gallery Items"
+        name: "gallery_file"
+        fields:
+          - label: "Gallery Photos & Clips"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["sparks", "fog", "lighting", "confetti", "sparks fog"]
+                hint: "Controls which filter button shows this item. Use \"sparks fog\" (space-separated) if it fits two categories."
+              - { label: "Tag shown on the image", name: "tag", widget: "string" }
+              - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image", required: false, hint: "Upload a photo to replace the placeholder box." }

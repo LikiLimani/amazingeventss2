@@ -1,0 +1,7 @@
+# Tells Netlify where to find the serverless functions used for
+# the /admin GitHub OAuth login (see netlify/functions/auth.js
+# and netlify/functions/callback.js).
+
+[build]
+  functions = "netlify/functions"
+  publish = "."

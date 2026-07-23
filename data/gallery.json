@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "category": "sparks",
+      "tag": "Sparks",
+      "caption": "Grand exit — Cliffside Estate",
+      "image": ""
+    },
+    {
+      "category": "fog",
+      "tag": "Fog",
+      "caption": "First dance — The Grand Oakwood",
+      "image": ""
+    },
+    {
+      "category": "lighting",
+      "tag": "Lighting",
+      "caption": "Monogram & uplighting — Harborview Hall",
+      "image": ""
+    },
+    {
+      "category": "confetti",
+      "tag": "Confetti",
+      "caption": "Recessional burst — Willow Creek Barn",
+      "image": ""
+    },
+    {
+      "category": "sparks fog",
+      "tag": "Sparks + Fog",
+      "caption": "Combined finale — The Kensington",
+      "image": ""
+    },
+    {
+      "category": "lighting",
+      "tag": "Lighting",
+      "caption": "Dancefloor design — private estate",
+      "image": ""
+    },
+    {
+      "category": "confetti",
+      "tag": "Confetti",
+      "caption": "First kiss burst — Cliffside Estate",
+      "image": ""
+    },
+    {
+      "category": "sparks",
+      "tag": "Sparks",
+      "caption": "Cake-cutting spark fountains",
+      "image": ""
+    },
+    {
+      "category": "fog",
+      "tag": "Fog",
+      "caption": "Ceremony fog reveal — Willow Creek Barn",
+      "image": ""
+    }
+  ]
+}
